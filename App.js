@@ -15,15 +15,15 @@ export default function App() {
     <SafeAreaView style={ styles.container }>
       <ScrollView>
         <View style={ styles.rowContainer }>
-          <Card title='One' subtitle='Exquisite' />
-          <Card title='Two' subtitle='Ah yes' />
+          <Card title='One' subtitle='Exquisite' bgColor='blue' />
+          <Card title='Two' subtitle='Ah yes' bgColor='red' />
         </View>
         <View style={ styles.rowContainer }>
-          <Card title='Three' subtitle='So sublime' />
-          <Card title='Four' subtitle='Beautiful' />
+          <Card title='Three' subtitle='So sublime' bgColor='orange' />
+          <Card title='Four' subtitle='Beautiful' bgColor='green' />
         </View>
         <View style={ styles.rowContainer }>
-          <Card title='Five' subtitle='Dear lord' />
+          <Card title='Five' subtitle='Dear lord' bgColor='yellow' />
         </View>
       </ScrollView>
     </SafeAreaView>

@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 
 export default function Card(props) {
   return (
-    <View style={ styles.card }>
+    <View style={ [styles.card, {backgroundColor: props.bgColor}] }>
       <View style={ styles.labels }>
         <Text style={ styles.title }>{ props.title }</Text>
         <Text style={ styles.subtitle }>{ props.subtitle }</Text>
@@ -20,8 +20,6 @@ const styles = StyleSheet.create({
     height: dimension,
     margin: 6,
     borderRadius: 18,
-
-    backgroundColor: '#eee',
   },
   labels: {
     marginTop: 'auto',
