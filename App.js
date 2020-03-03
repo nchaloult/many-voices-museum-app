@@ -1,16 +1,21 @@
 import React from 'react';
-import { StatusBar, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, ScrollView, StatusBar, StyleSheet, Text } from 'react-native';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <StatusBar
-        hidden={ false }
-        translucent={ true }
-        barStyle='dark-content'
-      />
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
+    <>
+    <StatusBar
+      hidden={ false }
+      translucent={ true }
+      backgroundColor='rgba(0, 0, 0, 0)'
+      barStyle='dark-content'
+    />
+    <SafeAreaView style={ styles.container }>
+      <ScrollView>
+        <Text>Open up App.js to start working on your app!</Text>
+      </ScrollView>
+    </SafeAreaView>
+    </>
   );
 }
 
