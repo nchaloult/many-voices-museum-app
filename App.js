@@ -17,15 +17,15 @@ export default function App() {
       <Title text='Exhibits' />
       <ScrollView>
         <View style={ styles.rowContainer }>
-          <Card title='One' subtitle='Exquisite' bgColor='blue' />
-          <Card title='Two' subtitle='Ah yes' bgColor='red' />
+          <Card title='One' subtitle='Firstname Lastname' bgColor='blue' />
+          <Card title='Two' subtitle='Firstname Lastname' bgColor='red' />
         </View>
         <View style={ styles.rowContainer }>
-          <Card title='Three' subtitle='So sublime' bgColor='orange' />
-          <Card title='Four' subtitle='Beautiful' bgColor='green' />
+          <Card title='Medium Title' subtitle='Firstname Lastname' bgColor='orange' />
+          <Card title='Even Longer Title' subtitle='Firstname Lastname' bgColor='green' />
         </View>
         <View style={ styles.rowContainer }>
-          <Card title='Five' subtitle='Dear lord' bgColor='yellow' />
+          <Card title='Super Duper Long Title' subtitle='Firstname Lastname' bgColor='yellow' />
         </View>
       </ScrollView>
     </SafeAreaView>
