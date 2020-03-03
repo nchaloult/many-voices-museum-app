@@ -16,17 +16,17 @@ const dimension = 160;
 
 const styles = StyleSheet.create({
   card: {
-    width: dimension,
-    height: dimension,
+    width: 310,
+    height: 270,
     margin: 6,
     borderRadius: 18,
   },
   labels: {
     marginTop: 'auto',
-    paddingTop: 6,
-    paddingBottom: 12,
-    paddingLeft: 12,
-    paddingRight: 12,
+    paddingTop: 10,
+    paddingBottom: 18,
+    paddingLeft: 18,
+    paddingRight: 18,
     backgroundColor: 'rgba(255, 255, 255, 0.5)',
   },
   title: {

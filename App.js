@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, ScrollView, StatusBar, StyleSheet, Text } from 'react-native';
 
 import Card from './components/Card';
 import Title from './components/Title';
@@ -16,17 +16,11 @@ export default function App() {
     <SafeAreaView style={ styles.container }>
       <Title text='Exhibits' />
       <ScrollView>
-        <View style={ styles.rowContainer }>
-          <Card title='One' subtitle='Firstname Lastname' bgColor='blue' />
-          <Card title='Two' subtitle='Firstname Lastname' bgColor='red' />
-        </View>
-        <View style={ styles.rowContainer }>
-          <Card title='Medium Title' subtitle='Firstname Lastname' bgColor='orange' />
-          <Card title='Even Longer Title' subtitle='Firstname Lastname' bgColor='green' />
-        </View>
-        <View style={ styles.rowContainer }>
-          <Card title='Super Duper Long Title' subtitle='Firstname Lastname' bgColor='yellow' />
-        </View>
+        <Card title='One' subtitle='Firstname Lastname' bgColor='blue' />
+        <Card title='Two' subtitle='Firstname Lastname' bgColor='red' />
+        <Card title='Medium Title' subtitle='Firstname Lastname' bgColor='orange' />
+        <Card title='Even Longer Title' subtitle='Firstname Lastname' bgColor='green' />
+        <Card title='Super Duper Long Title' subtitle='Firstname Lastname' bgColor='yellow' />
       </ScrollView>
     </SafeAreaView>
     </>
@@ -39,8 +33,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  rowContainer: {
-    flexDirection: 'row',
   }
 });
