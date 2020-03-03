@@ -2,6 +2,7 @@ import React from 'react';
 import { SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native';
 
 import Card from './components/Card';
+import Title from './components/Title';
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
       barStyle='dark-content'
     />
     <SafeAreaView style={ styles.container }>
+      <Title text='Exhibits' />
       <ScrollView>
         <View style={ styles.rowContainer }>
           <Card title='One' subtitle='Exquisite' bgColor='blue' />
