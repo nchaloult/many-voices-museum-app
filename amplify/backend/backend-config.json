@@ -1,0 +1,15 @@
+{
+	"auth": {
+		"jdplaygroundbb7bd20e": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	},
+	"storage": {
+		"jdplaygroundauthresource": {
+			"service": "S3",
+			"providerPlugin": "awscloudformation"
+		}
+	}
+}

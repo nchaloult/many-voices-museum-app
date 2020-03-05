@@ -1,0 +1,20 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-jd-playground-dev-184822-authRole",
+            "UnauthRoleArn": "arn:aws:iam::540140555786:role/amplify-jd-playground-dev-184822-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::540140555786:role/amplify-jd-playground-dev-184822-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-jd-playground-dev-184822-deployment",
+            "UnauthRoleName": "amplify-jd-playground-dev-184822-unauthRole",
+            "StackName": "amplify-jd-playground-dev-184822",
+            "StackId": "arn:aws:cloudformation:us-east-1:540140555786:stack/amplify-jd-playground-dev-184822/a35e2440-5e72-11ea-88ce-12498e67507f",
+            "AmplifyAppId": "dxr0uh3ko4qa7"
+        },
+        "categories": {
+            "auth": {
+                "jdplaygroundbb7bd20e": {}
+            }
+        }
+    }
+}
