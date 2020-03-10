@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   text: {
     marginTop: 8,
     marginBottom: 8,
-    marginLeft: 34,
+    marginLeft: 28,
     fontSize: 34,
     lineHeight: 40,
     fontWeight: 'bold',

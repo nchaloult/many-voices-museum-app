@@ -16,14 +16,14 @@ const dimension = 160;
 
 const styles = StyleSheet.create({
   card: {
-    width: 310,
+    width: 320,
     height: 270,
     margin: 6,
     borderRadius: 18,
   },
   labels: {
     marginTop: 'auto',
-    paddingTop: 10,
+    paddingTop: 12,
     paddingBottom: 18,
     paddingLeft: 18,
     paddingRight: 18,
