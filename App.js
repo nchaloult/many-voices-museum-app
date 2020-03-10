@@ -117,7 +117,7 @@ export default function App() {
     cardContent = <Card title='Loading' subtitle='Loading' bgColor='gray' />;
   } else {
     cardContent = exhibitList.map((exhibit, index) => {
-      return <Card key={ index } title={ exhibit['title'] } subtitle={ exhibit['author'] } bgColor='blue' />;
+      return <Card key={ index } title={ exhibit['title'] } subtitle={ exhibit['author'] } bgImgURI={ exhibit['images'][0] } />;
     });
   }
 

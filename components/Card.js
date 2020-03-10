@@ -1,13 +1,19 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { ImageBackground, View, Text, StyleSheet } from 'react-native';
 
 export default function Card(props) {
   return (
-    <View style={ [styles.card, {backgroundColor: props.bgColor}] }>
-      <View style={ styles.labels }>
-        <Text style={ styles.title }>{ props.title }</Text>
-        <Text style={ styles.subtitle }>{ props.subtitle }</Text>
-      </View>
+    <View style={ styles.card }>
+      <ImageBackground
+        source={{ uri: props.bgImgURI }}
+        style={ styles.bgImg }
+        imageStyle={{ borderRadius: 18 }}
+      >
+        <View style={ styles.labels }>
+          <Text style={ styles.title }>{ props.title }</Text>
+          <Text style={ styles.subtitle }>{ props.subtitle }</Text>
+        </View>
+      </ImageBackground>
     </View>
   );
 }
@@ -19,7 +25,10 @@ const styles = StyleSheet.create({
     width: 320,
     height: 270,
     margin: 6,
-    borderRadius: 18,
+  },
+  bgImg: {
+    width: '100%',
+    height: '100%',
   },
   labels: {
     marginTop: 'auto',
