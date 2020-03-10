@@ -98,8 +98,6 @@ const addImage = (filePath, exhibitList, i) => {
 };
 
 export default function App() {
-  const [imgURL, setImgURL] = useState('https://facebook.github.io/react/logo-og.png');
-
   const [exhibitList, setExhibitList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -132,10 +130,6 @@ export default function App() {
       barStyle='dark-content'
     />
     <SafeAreaView style={ styles.container }>
-      <Image
-        source={{ uri: imgURL }}
-        style={{ width: 100, height: 100 }}
-      />
       <Title text='Exhibits' />
       <ScrollView>
         { cardContent }
