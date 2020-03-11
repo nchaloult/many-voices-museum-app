@@ -28,3 +28,4 @@ Just playing with React Native and AWS Amplify to learn how to build features in
 
 1. Install react-navigation with `$ npm i @react-navigation/native`
 1. Install additional dependencies managed by Expo with `$ expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view`
+1. Install the stack navigator library with `$ npm i @react-navigation/stack`
