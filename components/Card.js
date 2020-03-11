@@ -5,12 +5,13 @@ export default function Card(props) {
   return (
     <TouchableOpacity
       style={ styles.card }
+      activeOpacity={ 0.8 }
       onPress={ () => props.navigation.navigate('Testing') }
     >
       <ImageBackground
         source={{ uri: props.bgImgURI }}
         style={ styles.bgImg }
-        imageStyle={{ borderRadius: 18 }}
+        imageStyle={{ borderRadius: borderRadius }}
       >
         <View style={ styles.labels }>
           <Text style={ styles.title }>{ props.title }</Text>
@@ -21,13 +22,18 @@ export default function Card(props) {
   );
 }
 
-const dimension = 160;
+const borderRadius = 18;
 
 const styles = StyleSheet.create({
   card: {
     width: 320,
     height: 270,
-    margin: 6,
+    marginBottom: 24,
+
+    shadowColor: 'black',
+    shadowOpacity: 0.35,
+    shadowOffset: { width: 0, height: 4 },
+    shadowRadius: 8,
   },
   bgImg: {
     width: '100%',
@@ -39,14 +45,18 @@ const styles = StyleSheet.create({
     paddingBottom: 18,
     paddingLeft: 18,
     paddingRight: 18,
-    backgroundColor: 'rgba(255, 255, 255, 0.5)',
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    borderBottomLeftRadius: borderRadius,
+    borderBottomRightRadius: borderRadius,
   },
   title: {
     fontSize: 24,
     fontWeight: '800',
+    color: 'white',
   },
   subtitle: {
     fontWeight: '600',
     textTransform: 'uppercase',
+    color: '#aeaeb2',
   }
 });

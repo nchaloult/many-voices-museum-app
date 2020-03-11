@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Image, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text } from 'react-native';
+import { ScrollView, StatusBar, StyleSheet, View } from 'react-native';
 
 import Card from '../components/Card';
 
@@ -136,11 +136,11 @@ export default function ExhibitsScreen(props) {
       backgroundColor='rgba(0, 0, 0, 0)'
       barStyle='dark-content'
     />
-    <SafeAreaView style={ styles.container }>
-      <ScrollView>
+    <View style={ styles.container }>
+      <ScrollView contentContainerStyle={ styles.scrollView } >
         { cardContent }
       </ScrollView>
-    </SafeAreaView>
+    </View>
     </>
   );
 }
@@ -149,7 +149,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
+  },
+  scrollView: {
     justifyContent: 'center',
+    alignItems: 'center',
+    paddingTop: 24,
+    paddingBottom: 24,
   }
 });
