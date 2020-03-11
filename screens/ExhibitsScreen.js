@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Image, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text } from 'react-native';
 
 import Card from '../components/Card';
-import Title from '../components/Title';
 
 import Amplify, { Storage } from 'aws-amplify';
 import awsconfig from '../aws-exports';
@@ -138,7 +137,6 @@ export default function ExhibitsScreen(props) {
       barStyle='dark-content'
     />
     <SafeAreaView style={ styles.container }>
-      <Title text='Exhibits' />
       <ScrollView>
         { cardContent }
       </ScrollView>
