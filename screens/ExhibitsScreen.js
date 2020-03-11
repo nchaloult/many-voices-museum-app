@@ -97,7 +97,7 @@ const addImage = (filePath, exhibitList, i) => {
   });
 };
 
-export default function ExhibitsScreen() {
+export default function ExhibitsScreen(props) {
   const [exhibitList, setExhibitList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -117,7 +117,15 @@ export default function ExhibitsScreen() {
     cardContent = <Card title='Loading' subtitle='Loading' bgColor='gray' />;
   } else {
     cardContent = exhibitList.map((exhibit, index) => {
-      return <Card key={ index } title={ exhibit['title'] } subtitle={ exhibit['author'] } bgImgURI={ exhibit['images'][0] } />;
+      return (
+        <Card
+          key={ index }
+          navigation={ props.navigation }
+          title={ exhibit['title'] }
+          subtitle={ exhibit['author'] }
+          bgImgURI={ exhibit['images'][0] }
+        />
+      );
     });
   }
 

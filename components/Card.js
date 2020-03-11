@@ -1,9 +1,12 @@
 import React from 'react';
-import { ImageBackground, View, Text, StyleSheet } from 'react-native';
+import { ImageBackground, View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 export default function Card(props) {
   return (
-    <View style={ styles.card }>
+    <TouchableOpacity
+      style={ styles.card }
+      onPress={ () => props.navigation.navigate('Testing') }
+    >
       <ImageBackground
         source={{ uri: props.bgImgURI }}
         style={ styles.bgImg }
@@ -14,7 +17,7 @@ export default function Card(props) {
           <Text style={ styles.subtitle }>{ props.subtitle }</Text>
         </View>
       </ImageBackground>
-    </View>
+    </TouchableOpacity>
   );
 }
 
