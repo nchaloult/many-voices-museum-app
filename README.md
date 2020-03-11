@@ -21,3 +21,10 @@ Just playing with React Native and AWS Amplify to learn how to build features in
 	* Authenticated users have all CRUD permissions
 	* Guest users only have read access
 	* Lambda trigger for your S3 bucket?: No
+
+## Navigation Setup Steps
+
+[https://reactnavigation.org/docs/getting-started](https://reactnavigation.org/docs/getting-started)
+
+1. Install react-navigation with `$ npm i @react-navigation/native`
+1. Install additional dependencies managed by Expo with `$ expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view`
