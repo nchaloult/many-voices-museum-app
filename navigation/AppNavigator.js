@@ -7,11 +7,16 @@ import TestingScreen from '../screens/TestingScreen';
 
 const Stack = createStackNavigator();
 
-export default function AppNavigator() {
+export default function AppNavigator(props) {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName='Exhibits'>
-        <Stack.Screen name='Exhibits' component={ ExhibitsScreen } options={{ header: () => null }} />
+        <Stack.Screen
+          name='Exhibits'
+          component={ ExhibitsScreen }
+          options={{ header: () => null }}
+          initialParams={{ exhibitList: props.exhibitList }}
+        />
         <Stack.Screen name='Testing' component={ TestingScreen } />
       </Stack.Navigator>
     </NavigationContainer>
