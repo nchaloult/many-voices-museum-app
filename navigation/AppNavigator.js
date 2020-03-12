@@ -11,7 +11,7 @@ export default function AppNavigator() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName='Exhibits'>
-        <Stack.Screen name='Exhibits' component={ ExhibitsScreen } />
+        <Stack.Screen name='Exhibits' component={ ExhibitsScreen } options={{ header: () => null }} />
         <Stack.Screen name='Testing' component={ TestingScreen } />
       </Stack.Navigator>
     </NavigationContainer>

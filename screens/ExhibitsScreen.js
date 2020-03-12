@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ScrollView, StatusBar, StyleSheet, View } from 'react-native';
 
 import Card from '../components/Card';
+import Title from '../components/Title';
 
 import Amplify, { Storage } from 'aws-amplify';
 import awsconfig from '../aws-exports';
@@ -138,6 +139,7 @@ export default function ExhibitsScreen(props) {
     />
     <View style={ styles.container }>
       <ScrollView contentContainerStyle={ styles.scrollView } >
+        <Title text='Exhibits' />
         { cardContent }
       </ScrollView>
     </View>
