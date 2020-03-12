@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { StatusBar, Text } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
+import Exhibit from './models/Exhibit';
+
 import AppNavigator from './navigation/AppNavigator';
 
 import Amplify, { Storage } from 'aws-amplify';
@@ -80,7 +82,7 @@ const constructExhibitList = (s3Contents) => {
       // Check to see if the current item we're on is a directory.
       if (curS3Object['size'] === 0) {
         curExhibitIndex++;
-        exhibitList[curExhibitIndex] = {};
+        exhibitList[curExhibitIndex] = new Exhibit();
       } else {
         // Strip out the file extension.
         const fileExt = curObjFilePath.match(/\.[0-9a-z]+$/i)[0].substr(1);
@@ -112,9 +114,11 @@ const addInfo = (filePath, exhibitList, i) => {
       .then((url) => fetch(url))
       .then((res) => res.json())
       .then((data) => {
-        exhibitList[i]['title'] = data['title'];
-        exhibitList[i]['author'] = data['author'];
-        exhibitList[i]['description'] = data['description'];
+        const curExhibit = exhibitList[i];
+
+        curExhibit.title = data.title;
+        curExhibit.author = data.author;
+        curExhibit.description = data.description;
 
         resolve();
       })
@@ -129,11 +133,13 @@ const addImage = (filePath, exhibitList, i) => {
   return new Promise((resolve, reject) => {
     Storage.get(filePath)
       .then((url) => {
-        if (exhibitList[i]['images'] === undefined) {
-          exhibitList[i]['images'] = [];
+        const curExhibit = exhibitList[i];
+
+        if (curExhibit.images === undefined) {
+          curExhibit.images = [];
         }
 
-        exhibitList[i]['images'].push(url);
+        curExhibit.images.push(url);
 
         resolve();
       })

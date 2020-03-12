@@ -19,9 +19,9 @@ export default function ExhibitsScreen(props) {
               <Card
                 key={ index }
                 navigation={ props.navigation }
-                title={ exhibit['title'] }
-                subtitle={ exhibit['author'] }
-                bgImgURI={ exhibit['images'][0] }
+                title={ exhibit.title }
+                subtitle={ exhibit.author }
+                bgImgURI={ exhibit.images[0] }
               />
             );
           })
