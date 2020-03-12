@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ScrollView, StatusBar, StyleSheet, View } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 
 import Card from '../components/Card';
 import Title from '../components/Title';
@@ -130,20 +130,13 @@ export default function ExhibitsScreen(props) {
   }
 
   return (
-    <>
-    <StatusBar
-      hidden={ false }
-      translucent={ true }
-      backgroundColor='rgba(0, 0, 0, 0)'
-      barStyle='dark-content'
-    />
     <View style={ styles.container }>
       <ScrollView contentContainerStyle={ styles.scrollView } >
+        <View style={ styles.dummyPadding }></View>
         <Title text='Exhibits' />
         { cardContent }
       </ScrollView>
     </View>
-    </>
   );
 }
 
@@ -151,6 +144,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+  },
+  dummyPadding: {
+    paddingTop: 64,
   },
   scrollView: {
     justifyContent: 'center',
