@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import ExhibitsScreen from '../screens/ExhibitsScreen';
-import TestingScreen from '../screens/TestingScreen';
+import DetailsScreen from '../screens/DetailsScreen';
 
 const Stack = createStackNavigator();
 
@@ -17,7 +17,7 @@ export default function AppNavigator(props) {
           options={{ header: () => null }}
           initialParams={{ exhibitList: props.exhibitList }}
         />
-        <Stack.Screen name='Testing' component={ TestingScreen } />
+        <Stack.Screen name='Details' component={ DetailsScreen } />
       </Stack.Navigator>
     </NavigationContainer>
   );

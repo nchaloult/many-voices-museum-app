@@ -6,7 +6,7 @@ export default function Card(props) {
     <TouchableOpacity
       style={ styles.card }
       activeOpacity={ 0.8 }
-      onPress={ () => props.navigation.navigate('Testing') }
+      onPress={ () => props.navigation.navigate('Details') }
     >
       <ImageBackground
         source={{ uri: props.bgImgURI }}
