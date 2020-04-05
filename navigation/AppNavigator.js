@@ -12,7 +12,7 @@ export default function AppNavigator(props) {
     <NavigationContainer>
       <Stack.Navigator initialRouteName='Exhibits'>
         <Stack.Screen
-          name='Exhibits'
+          name='Artwork'
           component={ ExhibitsScreen }
           options={{ header: () => null }}
           initialParams={{ exhibitList: props.exhibitList }}

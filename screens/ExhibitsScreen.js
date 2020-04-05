@@ -12,7 +12,7 @@ export default function ExhibitsScreen(props) {
     <SafeAreaView style={ styles.container }>
       <ScrollView contentContainerStyle={ styles.scrollView } >
         <View style={ styles.dummyPaddingTop }></View>
-        <Title text='Exhibits' />
+        <Title text='Artwork' />
         {
           exhibitList.map((exhibit, index) => {
             return (
