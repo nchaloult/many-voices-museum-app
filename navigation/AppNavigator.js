@@ -17,7 +17,11 @@ export default function AppNavigator(props) {
           options={{ header: () => null }}
           initialParams={{ exhibitList: props.exhibitList }}
         />
-        <Stack.Screen name='Details' component={ DetailsScreen } />
+        <Stack.Screen
+          name='Details'
+          component={ DetailsScreen }
+          options={ ({ route }) => ({ title: route.params.title }) }
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
