@@ -5,6 +5,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Exhibit from './models/Exhibit';
 
 import AppNavigator from './navigation/AppNavigator';
+import MediaPlayer from './components/MediaPlayer';
 
 import Amplify, { Storage } from 'aws-amplify';
 import awsconfig from './aws-exports';
@@ -33,7 +34,10 @@ export default function App(props) {
     );
   } else {
     content = (
-      <AppNavigator exhibitList={ exhibitList } />
+      <>
+        <AppNavigator exhibitList={ exhibitList } />
+        <MediaPlayer />
+      </>
     );
   }
 

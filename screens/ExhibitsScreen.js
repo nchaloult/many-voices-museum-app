@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { SafeAreaView, ScrollView, StyleSheet, View } from 'react-native';
 
 import Card from '../components/Card';
 import Title from '../components/Title';
@@ -9,9 +9,9 @@ export default function ExhibitsScreen(props) {
   const exhibitList = props.route.params.exhibitList;
 
   return (
-    <View style={ styles.container }>
+    <SafeAreaView style={ styles.container }>
       <ScrollView contentContainerStyle={ styles.scrollView } >
-        <View style={ styles.dummyPadding }></View>
+        <View style={ styles.dummyPaddingTop }></View>
         <Title text='Exhibits' />
         {
           exhibitList.map((exhibit, index) => {
@@ -27,7 +27,8 @@ export default function ExhibitsScreen(props) {
           })
         }
       </ScrollView>
-    </View>
+      <View style={ styles.dummyPaddingBottom }></View>
+    </SafeAreaView>
   );
 }
 
@@ -36,8 +37,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
-  dummyPadding: {
-    paddingTop: 64,
+  dummyPaddingTop: {
+    paddingTop: 24,
+  },
+  dummyPaddingBottom: {
+    paddingTop: 42,
   },
   scrollView: {
     justifyContent: 'center',
