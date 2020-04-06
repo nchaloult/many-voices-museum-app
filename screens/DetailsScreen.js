@@ -10,7 +10,11 @@ export default function DetailsScreen(props) {
               <Button
                 onPress={ () => props.navigation.navigate('Description', {
                   title: props.route.params.title,
-                  content: 'Content for the description screen. This content would ideally come from S3 or something',
+                  subtitle: props.route.params.subtitle,
+                  content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tristique nec tellus at vulputate. Ut sit amet mauris vitae ipsum sodales euismod. Donec dapibus hendrerit sapien. Mauris nec nibh et nisi aliquam vulputate. Sed in tempus erat. Aenean sed ornare arcu. Proin dapibus sagittis massa. Quisque quis est eleifend, sagittis ante at, maximus mi.
+                  
+Nunc suscipit nisl nisl, vitae malesuada massa imperdiet ac. Nulla laoreet, est at pellentesque iaculis, massa nisi rhoncus odio, at lobortis arcu sapien vitae diam. Integer sed lectus id tellus scelerisque ullamcorper. Mauris interdum iaculis nisl, et venenatis magna porttitor id. Quisque pharetra non eros placerat vestibulum. Pellentesque ultrices mauris eget lobortis tempor. Nam tincidunt, est nec aliquam scelerisque, enim metus pellentesque urna, at aliquam nunc arcu vel velit.`,
+                  bgImgURI: props.route.params.bgImgURI,
                 }) }
                 title='Info'
               />
