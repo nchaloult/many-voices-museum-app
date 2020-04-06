@@ -1,8 +1,14 @@
 import { MEDIA_TITLE_CHANGE } from '../constants';
 
-export function changeMediaTitle(title) {
+function changeMediaTitle(title) {
     return {
         type: MEDIA_TITLE_CHANGE,
         payload: title,
     };
 }
+
+const actionCreators = {
+    changeMediaTitle,
+};
+
+export { actionCreators };

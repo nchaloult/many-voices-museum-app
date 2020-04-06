@@ -8,8 +8,7 @@ const mediaTitleReducer = (state = initialState, action) => {
     switch(action.type) {
         case MEDIA_TITLE_CHANGE:
             return {
-                ...state,
-                mediaTitie: action.payload
+                mediaTitle: action.payload,
             };
         default:
             return state;

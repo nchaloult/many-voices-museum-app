@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { Dimensions, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
+import { connect } from 'react-redux';
+
 const snapTop = 192;
 const snapBottom = Dimensions.get('window').height - 108;
 
-export default function MediaPlayer() {
+function MediaPlayer(props) {
     const [up, setUp] = useState(false);
 
     return (
@@ -16,7 +18,7 @@ export default function MediaPlayer() {
             <SafeAreaView style={ [styles.col, styles.mainInfoWrapper] }>
                 <View style={ styles.row }>
                     <View style={ styles.col }>
-                        <Text style={ styles.title }>Critique Title</Text>
+                        <Text style={ styles.title }>{ props.mediaTitle.mediaTitle }</Text>
                         <Text style={ styles.subtitle }>name - occupation</Text>
                     </View>
                     <View style={ styles.row }>
@@ -34,6 +36,17 @@ export default function MediaPlayer() {
         </View>
     );
 }
+
+const mapStateToProps = (state) => {
+    const { mediaTitle } = state;
+    return {
+        mediaTitle,
+    };
+};
+
+export default connect(
+    mapStateToProps,
+)(MediaPlayer);
 
 const borderRadius = 24;
 const handlebarWidth = Dimensions.get('window').width / 5;
