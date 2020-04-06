@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Dimensions, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
+import MediaExpanded from './MediaExpanded';
+
 import { connect } from 'react-redux';
 
 const snapTop = 192;
@@ -18,7 +20,7 @@ function MediaPlayer(props) {
             <SafeAreaView style={ [styles.col, styles.mainInfoWrapper] }>
                 <View style={ styles.row }>
                     <View style={ styles.col }>
-                        <Text style={ styles.title }>{ props.mediaTitle.mediaTitle }</Text>
+                        <Text style={ styles.title }>{ props.mediaTitle }</Text>
                         <Text style={ styles.subtitle }>name - occupation</Text>
                     </View>
                     <View style={ styles.row }>
@@ -28,9 +30,9 @@ function MediaPlayer(props) {
                     </View>
                 </View>
                 <View style={ [{ opacity: up ? 1 : 0 }, styles.expanded] }>
-                    <Text>Scrubber goes here.</Text>
-                    <Text>The written transcript of the currently-playing audio critique goes here, too.</Text>
-                    <Text>This space will be filled up eventually.</Text>
+                    <MediaExpanded
+                        transcript='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et augue quis neque iaculis auctor. Nulla tincidunt magna tincidunt odio facilisis, nec aliquet nunc laoreet. Cras tincidunt egestas urna, ut dignissim turpis porttitor sit amet. Morbi vitae scelerisque ex. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a dui et dolor feugiat dapibus. Phasellus nec ullamcorper ex. Quisque mi magna, viverra et semper id, dictum a sapien. Nulla iaculis sollicitudin velit, a ultricies metus lacinia nec. Phasellus vitae elit cursus, dictum nibh in, convallis orci. Sed id faucibus felis. Ut eu mi ut ante ullamcorper faucibus vel vel enim.'
+                    />
                 </View>
             </SafeAreaView>
         </View>
@@ -38,7 +40,7 @@ function MediaPlayer(props) {
 }
 
 const mapStateToProps = (state) => {
-    const { mediaTitle } = state;
+    const { mediaTitle } = state.media;
     return {
         mediaTitle,
     };

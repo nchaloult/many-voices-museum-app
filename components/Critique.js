@@ -37,19 +37,13 @@ function Critique(props) {
     );
 }
 
-const mapStateToProps = (state) => {
-    const { mediaTitle } = state;
-    return {
-        mediaTitle,
-    };
-};
 const mapDispatchToProps = (dispatch) => {
     return {
         changeMediaTitle: bindActionCreators(actions.changeMediaTitle, dispatch),
     };
 };
 export default connect(
-    mapStateToProps,
+    null,
     mapDispatchToProps,
 )(Critique);
 
