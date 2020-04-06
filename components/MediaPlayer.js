@@ -5,12 +5,35 @@ import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import MediaExpanded from './MediaExpanded';
 
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { actionCreators as actions } from '../actions/media';
 
 const snapTop = 192;
 const snapBottom = Dimensions.get('window').height - 108;
 
 function MediaPlayer(props) {
     const [up, setUp] = useState(false);
+
+    console.log(props);
+
+    let playpause;
+    if (props.paused) {
+        playpause = (
+            <TouchableOpacity
+                style={ styles.play }
+                onPress={ () => props.playpause() }
+            >
+            </TouchableOpacity>
+        );
+    } else {
+        playpause = (
+            <TouchableOpacity
+                style={ styles.pause }
+                onPress={ () => props.playpause() }
+            >
+            </TouchableOpacity>
+        );
+    }
 
     return (
         <View style={ [{ top: up ? snapTop: snapBottom }, styles.container] }>
@@ -25,7 +48,7 @@ function MediaPlayer(props) {
                     </View>
                     <View style={ styles.row }>
                         <TouchableOpacity style={ styles.skip }></TouchableOpacity>
-                        <TouchableOpacity style={ styles.playpause }></TouchableOpacity>
+                        { playpause }
                         <TouchableOpacity style={ styles.skip }></TouchableOpacity>
                     </View>
                 </View>
@@ -40,14 +63,18 @@ function MediaPlayer(props) {
 }
 
 const mapStateToProps = (state) => {
-    const { mediaTitle } = state.media;
-    return {
-        mediaTitle,
-    };
+    const { mediaTitle, paused } = state.media;
+    return { mediaTitle, paused };
 };
+const mapDispatchToProps = (dispatch) => {
+    return {
+        playpause: bindActionCreators(actions.playpause, dispatch),
+    };
+}
 
 export default connect(
     mapStateToProps,
+    mapDispatchToProps,
 )(MediaPlayer);
 
 const borderRadius = 24;
@@ -107,7 +134,7 @@ const styles = StyleSheet.create({
         textTransform: 'uppercase',
         color: '#636366',
     },
-    playpause: {
+    play: {
         width: 0,
         height: 0,
         margin: 8,
@@ -119,6 +146,17 @@ const styles = StyleSheet.create({
         borderTopColor: 'transparent',
         borderBottomColor: 'transparent',
         borderLeftColor: 'black',
+    },
+    pause: {
+        width: 28,
+        height: 28,
+        margin: 8,
+        borderLeftWidth: 10,
+        borderRightWidth: 10,
+        borderStyle: 'solid',
+        backgroundColor: 'transparent',
+        borderLeftColor: 'black',
+        borderRightColor: 'black',
     },
     skip: {
         width: 28,

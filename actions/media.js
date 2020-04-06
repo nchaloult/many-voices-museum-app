@@ -1,4 +1,4 @@
-import { MEDIA_TITLE_CHANGE } from '../constants';
+import { MEDIA_TITLE_CHANGE, MEDIA_PLAYPAUSE } from '../constants';
 
 function changeMediaTitle(title) {
     return {
@@ -7,8 +7,15 @@ function changeMediaTitle(title) {
     };
 }
 
+function playpause() {
+    return {
+        type: MEDIA_PLAYPAUSE,
+    };
+}
+
 const actionCreators = {
     changeMediaTitle,
+    playpause,
 };
 
 export { actionCreators };

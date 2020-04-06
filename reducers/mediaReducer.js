@@ -1,7 +1,8 @@
-import { MEDIA_TITLE_CHANGE } from '../constants';
+import { MEDIA_TITLE_CHANGE, MEDIA_PLAYPAUSE } from '../constants';
 
 const initialState = {
     playing: false,
+    paused: true,
     mediaTitle: 'Nothing Playing',
 };
 
@@ -11,6 +12,11 @@ const mediaTitleReducer = (state = initialState, action) => {
             return {
                 playing: true,
                 mediaTitle: action.payload,
+            };
+        case MEDIA_PLAYPAUSE:
+            return {
+                ...state,
+                paused: !state.paused,
             };
         default:
             return state;
