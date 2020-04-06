@@ -8,7 +8,7 @@ export default function DetailsScreen(props) {
       props.navigation.setOptions({
           headerRight: () => (
               <Button
-                onPress={ () => props.navigation.navigate('Description', {
+                onPress={ () => props.navigation.navigate('Info', {
                   title: props.route.params.title,
                   subtitle: props.route.params.subtitle,
                   content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tristique nec tellus at vulputate. Ut sit amet mauris vitae ipsum sodales euismod. Donec dapibus hendrerit sapien. Mauris nec nibh et nisi aliquam vulputate. Sed in tempus erat. Aenean sed ornare arcu. Proin dapibus sagittis massa. Quisque quis est eleifend, sagittis ante at, maximus mi.
