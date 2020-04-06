@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StatusBar, Text } from 'react-native';
+import { StatusBar, Text, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { Provider } from 'react-redux';
@@ -34,7 +34,9 @@ export default function App(props) {
   let content;
   if (isLoading) {
     content = (
-      <Text>Loading exhibits...</Text>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>Loading exhibits...</Text>
+      </View>
     );
   } else {
     content = (
