@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Dimensions, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React, { useState, useRef } from 'react';
+import { Animated, Dimensions, Easing, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 import MediaExpanded from './MediaExpanded';
@@ -13,8 +13,17 @@ const snapBottom = Dimensions.get('window').height - 108;
 
 function MediaPlayer(props) {
     const [up, setUp] = useState(false);
+    const pos = useRef(new Animated.Value(snapBottom)).current;
 
-    console.log(props);
+    const handlebarTapHandler = () => {
+        if (up) {
+            Animated.timing(pos, { toValue: snapBottom, duration: 600, easing: Easing.out(Easing.exp) }).start();
+            setUp(!up);
+        } else {
+            Animated.timing(pos, { toValue: snapTop, duration: 600, easing: Easing.out(Easing.exp) }).start();
+            setUp(!up);
+        }
+    };
 
     let playpause;
     if (props.paused) {
@@ -36,8 +45,8 @@ function MediaPlayer(props) {
     }
 
     return (
-        <View style={ [{ top: up ? snapTop: snapBottom }, styles.container] }>
-            <TouchableWithoutFeedback onPress={ () => setUp(!up) } style={ styles.handlebarWrapper }>
+        <Animated.View style={ [{ top: pos }, styles.container] }>
+            <TouchableWithoutFeedback onPress={ () => handlebarTapHandler() } style={ styles.handlebarWrapper }>
                 <View style={ styles.handlebar }></View>
             </TouchableWithoutFeedback>
             <SafeAreaView style={ [styles.col, styles.mainInfoWrapper] }>
@@ -58,7 +67,7 @@ function MediaPlayer(props) {
                     />
                 </View>
             </SafeAreaView>
-        </View>
+        </Animated.View>
     );
 }
 
