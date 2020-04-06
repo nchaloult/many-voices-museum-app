@@ -1,0 +1,1 @@
+export const MEDIA_TITLE_CHANGE = 'MEDIA_TITLE_CHANGE';
