@@ -7,7 +7,13 @@ export default function DetailsScreen(props) {
   useLayoutEffect(() => {
       props.navigation.setOptions({
           headerRight: () => (
-              <Button onPress={() => alert('yeet')} title='Info' />
+              <Button
+                onPress={ () => props.navigation.navigate('Description', {
+                  title: props.route.params.title,
+                  content: 'Content for the description screen. This content would ideally come from S3 or something',
+                }) }
+                title='Info'
+              />
           ),
       });
   }, [props.navigation]);
