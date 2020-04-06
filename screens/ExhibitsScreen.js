@@ -8,6 +8,19 @@ export default function ExhibitsScreen(props) {
   // Get exhibitList prop passed in from a Screen component in AppNavigator.
   const exhibitList = props.route.params.exhibitList;
 
+  const tagList = [
+    ['#tag1', '#tag2'],
+    ['#tag1', '#tag2'],
+    ['#tag1'],
+    ['#tag1', '#tag2'],
+  ];
+  const colorsList = [
+    [2,1],
+    [3,2],
+    [4],
+    [1,0],
+  ];
+
   return (
     <SafeAreaView style={ styles.container }>
       <ScrollView contentContainerStyle={ styles.scrollView } >
@@ -22,6 +35,8 @@ export default function ExhibitsScreen(props) {
                 title={ exhibit.title }
                 subtitle={ exhibit.author }
                 bgImgURI={ exhibit.images[0] }
+                tags={ tagList[index] }
+                colors={ colorsList[index] }
               />
             );
           })
