@@ -17,7 +17,7 @@ export default function MediaPlayer() {
                 <View style={ styles.row }>
                     <View style={ styles.col }>
                         <Text style={ styles.title }>Critique Title</Text>
-                        <Text style={ styles.subtitle }>NAME - OCCUPATION</Text>
+                        <Text style={ styles.subtitle }>name - occupation</Text>
                     </View>
                     <View style={ styles.row }>
                         <TouchableOpacity style={ styles.skip }></TouchableOpacity>
@@ -89,6 +89,7 @@ const styles = StyleSheet.create({
     },
     subtitle: {
         fontWeight: '600',
+        textTransform: 'uppercase',
         color: '#636366',
     },
     playpause: {
