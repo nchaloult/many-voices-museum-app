@@ -6,6 +6,8 @@ import { bindActionCreators } from 'redux';
 import { actionCreators as actions } from '../actions/media';
 
 function Critique(props) {
+    const colorIndices = props.colors;
+
     return (
         <>
         <TouchableOpacity
@@ -21,9 +23,8 @@ function Critique(props) {
                 <View style={ styles.row }>
                     {
                         props.tags.map((tag, index) => {
-                            const randomColor = colors[Math.floor(Math.random() * colors.length)];
                             return (
-                                <View key={ index } style={ [styles.tag, { backgroundColor: randomColor }] }>
+                                <View key={ index } style={ [styles.tag, { backgroundColor: colors[colorIndices[index]] }] }>
                                     <Text style={ styles.tagText }>{ tag }</Text>
                                 </View>
                             );

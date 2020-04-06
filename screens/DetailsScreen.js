@@ -30,48 +30,56 @@ export default function DetailsScreen(props) {
             subtitle='name - occupation'
             duration='1:10'
             tags={ ['#tag1', '#tag2'] }
+            colors={ [0,4] }
           />
           <Critique
             title='Critique Two'
             subtitle='name - occupation'
             duration='1:10'
             tags={ ['#tag1'] }
+            colors={ [3] }
           />
           <Critique
             title='Critique Three'
             subtitle='name - occupation'
             duration='1:10'
             tags={ [] }
+            colors={ [] }
           />
           <Critique
             title='Critique Four'
             subtitle='name - occupation'
             duration='1:10'
             tags={ ['#tag1'] }
+            colors={ [2] }
           />
           <Critique
             title='Critique Five'
             subtitle='name - occupation'
             duration='1:10'
             tags={ ['#tag1'] }
+            colors={ [1] }
           />
           <Critique
             title='Critique Six'
             subtitle='name - occupation'
             duration='1:10'
             tags={ ['#tag1', '#tag2', '#tag3'] }
+            colors={ [2,4,3] }
           />
           <Critique
             title='Critique Seven'
             subtitle='name - occupation'
             duration='1:10'
             tags={ [] }
+            colors={ [] }
           />
           <Critique
             title='Critique Eight'
             subtitle='name - occupation'
             duration='1:10'
             tags={ ['#tag1'] }
+            colors={ [1] }
           />
         </ScrollView>
         <View style={ styles.dummyPaddingBottom }></View>
