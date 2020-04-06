@@ -28,15 +28,7 @@ function MediaExpanded(props) {
     } else {
         content = (
             <View style={ [styles.container, styles.col] }>
-                <View style={ [styles.row, { alignItems: 'center' }] }>
-                    <View style={ styles.lineLeft }></View>
-                    <View style={ styles.lineRight }></View>
-                    <View style={ styles.circle }></View>
-                </View>
-                <View style={ [styles.row, { justifyContent: 'space-between' }] }>
-                    <Text style={ styles.times }>0:04</Text>
-                    <Text style={ styles.times }>0:46</Text>
-                </View>
+                <Text style={{ textAlign: 'center' }}>Nothing playing</Text>
             </View>
         );
     }
