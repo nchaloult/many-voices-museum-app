@@ -1,9 +1,19 @@
 import React from 'react';
-import { Dimensions, StyleSheet, Text, View } from 'react-native';
+import { Dimensions, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-export default function Critique(props) {
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { actionCreators as actions } from '../actions/media';
+
+function Critique(props) {
+    const colorIndices = props.colors;
+
     return (
-        <View style={ [styles.container, styles.row] }>
+        <>
+        <TouchableOpacity
+            style={ [styles.container, styles.row] }
+            onPress={ () => props.changeMediaTitle(props.title) }
+        >
             <View style={ [styles.col, { alignItems: 'stretch', }] }>
                 <Text style={ styles.title }>{ props.title }</Text>
                 <Text style={ styles.subtitle }>{ props.subtitle }</Text>
@@ -13,9 +23,8 @@ export default function Critique(props) {
                 <View style={ styles.row }>
                     {
                         props.tags.map((tag, index) => {
-                            const randomColor = colors[Math.floor(Math.random() * colors.length)];
                             return (
-                                <View key={ index } style={ [styles.tag, { backgroundColor: randomColor }] }>
+                                <View key={ index } style={ [styles.tag, { backgroundColor: colors[colorIndices[index]] }] }>
                                     <Text style={ styles.tagText }>{ tag }</Text>
                                 </View>
                             );
@@ -23,9 +32,20 @@ export default function Critique(props) {
                     }
                 </View>
             </View>
-        </View>
+        </TouchableOpacity>
+        </>
     );
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        changeMediaTitle: bindActionCreators(actions.changeMediaTitle, dispatch),
+    };
+};
+export default connect(
+    null,
+    mapDispatchToProps,
+)(Critique);
 
 const screenWidth = Dimensions.get('window').width;
 const colors = ['#34c759', '#5ac8fa', '#ff3b30', '#ff9500', '#af52de'];

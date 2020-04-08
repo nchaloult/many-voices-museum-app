@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { StatusBar, Text } from 'react-native';
+import { StatusBar, Text, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+
+import { Provider } from 'react-redux';
+import configureStore from './store/configureStore';
+const store = configureStore();
 
 import Exhibit from './models/Exhibit';
 
@@ -30,7 +34,9 @@ export default function App(props) {
   let content;
   if (isLoading) {
     content = (
-      <Text>Loading exhibits...</Text>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>Loading exhibits...</Text>
+      </View>
     );
   } else {
     content = (
@@ -42,12 +48,12 @@ export default function App(props) {
   }
 
   return (
-    <>
+    <Provider store={ store }>
       <StatusBar barStyle='dark-content' />
       <SafeAreaProvider>
         { content }
       </SafeAreaProvider>
-    </>
+    </Provider>
   );
 }
 

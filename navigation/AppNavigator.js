@@ -4,13 +4,14 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import ExhibitsScreen from '../screens/ExhibitsScreen';
 import DetailsScreen from '../screens/DetailsScreen';
+import DescriptionScreen from '../screens/DescriptionScreen';
 
 const Stack = createStackNavigator();
 
 export default function AppNavigator(props) {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Exhibits'>
+      <Stack.Navigator initialRouteName='Artwork'>
         <Stack.Screen
           name='Artwork'
           component={ ExhibitsScreen }
@@ -21,6 +22,10 @@ export default function AppNavigator(props) {
           name='Details'
           component={ DetailsScreen }
           options={ ({ route }) => ({ title: route.params.title }) }
+        />
+        <Stack.Screen
+          name='Info'
+          component={ DescriptionScreen }
         />
       </Stack.Navigator>
     </NavigationContainer>

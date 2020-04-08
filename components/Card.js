@@ -2,6 +2,8 @@ import React from 'react';
 import { ImageBackground, View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 export default function Card(props) {
+  const colorIndices = props.colors;
+
   return (
     <TouchableOpacity
       style={ styles.card }
@@ -17,9 +19,22 @@ export default function Card(props) {
         style={ styles.bgImg }
         imageStyle={{ borderRadius: borderRadius }}
       >
-        <View style={ styles.labels }>
-          <Text style={ styles.title }>{ props.title }</Text>
-          <Text style={ styles.subtitle }>{ props.subtitle }</Text>
+        <View style={ [styles.labels, styles.row] }>
+          <View style={ styles.col }>
+            <Text style={ styles.title }>{ props.title }</Text>
+            <Text style={ styles.subtitle }>{ props.subtitle }</Text>
+          </View>
+          <View style={ styles.col }>
+            {
+              props.tags.map((tag, index) => {
+                return (
+                  <View key={ index } style={ [styles.tag, { backgroundColor: colors[colorIndices[index]] }] }>
+                    <Text style={ styles.tagText }>{ tag }</Text>
+                  </View>
+                );
+              })
+            }
+          </View>
         </View>
       </ImageBackground>
     </TouchableOpacity>
@@ -27,8 +42,15 @@ export default function Card(props) {
 }
 
 const borderRadius = 18;
+const colors = ['#34c759', '#5ac8fa', '#ff3b30', '#ff9500', '#af52de'];
 
 const styles = StyleSheet.create({
+  row: {
+    flexDirection: 'row',
+  },
+  col: {
+    flexDirection: 'column',
+  },
   card: {
     width: 320,
     height: 270,
@@ -44,6 +66,7 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   labels: {
+    justifyContent: 'space-between',
     marginTop: 'auto',
     paddingTop: 12,
     paddingBottom: 18,
@@ -62,5 +85,19 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     textTransform: 'uppercase',
     color: '#aeaeb2',
-  }
+  },
+  tag: {
+    marginLeft: 4,
+    marginTop: 4,
+    paddingTop: 4,
+    paddingBottom: 4,
+    paddingLeft: 8,
+    paddingRight: 8,
+    borderRadius: 100,
+  },
+  tagText: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: 'white',
+  },
 });

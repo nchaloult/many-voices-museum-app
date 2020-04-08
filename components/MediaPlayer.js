@@ -1,39 +1,90 @@
-import React, { useState } from 'react';
-import { Dimensions, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React, { useState, useRef } from 'react';
+import { Animated, Dimensions, Easing, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+
+import MediaExpanded from './MediaExpanded';
+
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { actionCreators as actions } from '../actions/media';
 
 const snapTop = 192;
 const snapBottom = Dimensions.get('window').height - 108;
 
-export default function MediaPlayer() {
+function MediaPlayer(props) {
     const [up, setUp] = useState(false);
+    const pos = useRef(new Animated.Value(snapBottom)).current;
+
+    const handlebarTapHandler = () => {
+        if (up) {
+            Animated.timing(pos, { toValue: snapBottom, duration: 600, easing: Easing.out(Easing.exp) }).start();
+            setUp(!up);
+        } else {
+            Animated.timing(pos, { toValue: snapTop, duration: 600, easing: Easing.out(Easing.exp) }).start();
+            setUp(!up);
+        }
+    };
+
+    let playpause;
+    if (props.paused) {
+        playpause = (
+            <TouchableOpacity
+                style={ styles.play }
+                onPress={ () => props.playpause() }
+            >
+            </TouchableOpacity>
+        );
+    } else {
+        playpause = (
+            <TouchableOpacity
+                style={ styles.pause }
+                onPress={ () => props.playpause() }
+            >
+            </TouchableOpacity>
+        );
+    }
 
     return (
-        <View style={ [{ top: up ? snapTop: snapBottom }, styles.container] }>
-            <TouchableWithoutFeedback onPress={ () => setUp(!up) } style={ styles.handlebarWrapper }>
+        <Animated.View style={ [{ top: pos }, styles.container] }>
+            <TouchableWithoutFeedback onPress={ () => handlebarTapHandler() } style={ styles.handlebarWrapper }>
                 <View style={ styles.handlebar }></View>
             </TouchableWithoutFeedback>
             <SafeAreaView style={ [styles.col, styles.mainInfoWrapper] }>
                 <View style={ styles.row }>
                     <View style={ styles.col }>
-                        <Text style={ styles.title }>Critique Title</Text>
+                        <Text style={ styles.title }>{ props.mediaTitle }</Text>
                         <Text style={ styles.subtitle }>name - occupation</Text>
                     </View>
                     <View style={ styles.row }>
                         <TouchableOpacity style={ styles.skip }></TouchableOpacity>
-                        <TouchableOpacity style={ styles.playpause }></TouchableOpacity>
+                        { playpause }
                         <TouchableOpacity style={ styles.skip }></TouchableOpacity>
                     </View>
                 </View>
                 <View style={ [{ opacity: up ? 1 : 0 }, styles.expanded] }>
-                    <Text>Scrubber goes here.</Text>
-                    <Text>The written transcript of the currently-playing audio critique goes here, too.</Text>
-                    <Text>This space will be filled up eventually.</Text>
+                    <MediaExpanded
+                        transcript='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et augue quis neque iaculis auctor. Nulla tincidunt magna tincidunt odio facilisis, nec aliquet nunc laoreet. Cras tincidunt egestas urna, ut dignissim turpis porttitor sit amet. Morbi vitae scelerisque ex. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a dui et dolor feugiat dapibus. Phasellus nec ullamcorper ex. Quisque mi magna, viverra et semper id, dictum a sapien. Nulla iaculis sollicitudin velit, a ultricies metus lacinia nec. Phasellus vitae elit cursus, dictum nibh in, convallis orci. Sed id faucibus felis. Ut eu mi ut ante ullamcorper faucibus vel vel enim.'
+                    />
                 </View>
             </SafeAreaView>
-        </View>
+        </Animated.View>
     );
 }
+
+const mapStateToProps = (state) => {
+    const { mediaTitle, paused } = state.media;
+    return { mediaTitle, paused };
+};
+const mapDispatchToProps = (dispatch) => {
+    return {
+        playpause: bindActionCreators(actions.playpause, dispatch),
+    };
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(MediaPlayer);
 
 const borderRadius = 24;
 const handlebarWidth = Dimensions.get('window').width / 5;
@@ -92,7 +143,7 @@ const styles = StyleSheet.create({
         textTransform: 'uppercase',
         color: '#636366',
     },
-    playpause: {
+    play: {
         width: 0,
         height: 0,
         margin: 8,
@@ -104,6 +155,17 @@ const styles = StyleSheet.create({
         borderTopColor: 'transparent',
         borderBottomColor: 'transparent',
         borderLeftColor: 'black',
+    },
+    pause: {
+        width: 28,
+        height: 28,
+        margin: 8,
+        borderLeftWidth: 10,
+        borderRightWidth: 10,
+        borderStyle: 'solid',
+        backgroundColor: 'transparent',
+        borderLeftColor: 'black',
+        borderRightColor: 'black',
     },
     skip: {
         width: 28,

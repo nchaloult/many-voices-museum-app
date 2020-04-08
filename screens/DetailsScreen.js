@@ -7,7 +7,17 @@ export default function DetailsScreen(props) {
   useLayoutEffect(() => {
       props.navigation.setOptions({
           headerRight: () => (
-              <Button onPress={() => alert('yeet')} title='Info' />
+              <Button
+                onPress={ () => props.navigation.navigate('Info', {
+                  title: props.route.params.title,
+                  subtitle: props.route.params.subtitle,
+                  content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tristique nec tellus at vulputate. Ut sit amet mauris vitae ipsum sodales euismod. Donec dapibus hendrerit sapien. Mauris nec nibh et nisi aliquam vulputate. Sed in tempus erat. Aenean sed ornare arcu. Proin dapibus sagittis massa. Quisque quis est eleifend, sagittis ante at, maximus mi.
+                  
+Nunc suscipit nisl nisl, vitae malesuada massa imperdiet ac. Nulla laoreet, est at pellentesque iaculis, massa nisi rhoncus odio, at lobortis arcu sapien vitae diam. Integer sed lectus id tellus scelerisque ullamcorper. Mauris interdum iaculis nisl, et venenatis magna porttitor id. Quisque pharetra non eros placerat vestibulum. Pellentesque ultrices mauris eget lobortis tempor. Nam tincidunt, est nec aliquam scelerisque, enim metus pellentesque urna, at aliquam nunc arcu vel velit.`,
+                  bgImgURI: props.route.params.bgImgURI,
+                }) }
+                title='Info'
+              />
           ),
       });
   }, [props.navigation]);
@@ -24,48 +34,56 @@ export default function DetailsScreen(props) {
             subtitle='name - occupation'
             duration='1:10'
             tags={ ['#tag1', '#tag2'] }
+            colors={ [0,4] }
           />
           <Critique
             title='Critique Two'
             subtitle='name - occupation'
             duration='1:10'
             tags={ ['#tag1'] }
+            colors={ [3] }
           />
           <Critique
             title='Critique Three'
             subtitle='name - occupation'
             duration='1:10'
             tags={ [] }
+            colors={ [] }
           />
           <Critique
             title='Critique Four'
             subtitle='name - occupation'
             duration='1:10'
             tags={ ['#tag1'] }
+            colors={ [2] }
           />
           <Critique
             title='Critique Five'
             subtitle='name - occupation'
             duration='1:10'
             tags={ ['#tag1'] }
+            colors={ [1] }
           />
           <Critique
             title='Critique Six'
             subtitle='name - occupation'
             duration='1:10'
             tags={ ['#tag1', '#tag2', '#tag3'] }
+            colors={ [2,4,3] }
           />
           <Critique
             title='Critique Seven'
             subtitle='name - occupation'
             duration='1:10'
             tags={ [] }
+            colors={ [] }
           />
           <Critique
             title='Critique Eight'
             subtitle='name - occupation'
             duration='1:10'
             tags={ ['#tag1'] }
+            colors={ [1] }
           />
         </ScrollView>
         <View style={ styles.dummyPaddingBottom }></View>
