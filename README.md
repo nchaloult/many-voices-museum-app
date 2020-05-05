@@ -1,6 +1,6 @@
 # Many Voices Playground
 
-![](https://github.gatech.edu/nchaloult3/many-voices-playground/blob/master/gifs/demo-on-readme.gif?raw=true)
+<img src="https://github.gatech.edu/nchaloult3/many-voices-playground/blob/master/gifs/demo-on-readme.gif?raw=true" width="320">
 
 Just playing with React Native and AWS Amplify to learn how to build features in our app that we want, and how to hook everything up to the cloud.
 
