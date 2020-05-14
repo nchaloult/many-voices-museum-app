@@ -1,6 +1,8 @@
 # Many Voices Museum App
 
-<img src="https://github.com/nchaloult/many-voices-museum-app/blob/master/gifs/demo-on-readme.gif?raw=true" width="320">
+<p align="center">
+	<img src="https://github.com/nchaloult/many-voices-museum-app/blob/master/gifs/demo-on-readme.gif?raw=true" width="320">
+</p>
 
 This project is a proof-of-concept for a platform that a team and I will build for a client during the Fall 2020 school semester. This served as a playground for me to grow familiar with the technologies that my team will be using to build the final version of this platform.
 
