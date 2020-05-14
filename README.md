@@ -8,7 +8,7 @@ Read more about what the final platform will be, and the motivation behind it, i
 
 ## Project Details
 
-This cross-platform mobile application is built with React Native and Redux. On initial startup, it reaches out to an AWS S3 bucket to fetch content to display. This means that the content that this app showcases may be updated with little friction.
+This cross-platform mobile application is built with React Native and Expo, along with other helpful libraries like Redux. On initial startup, it reaches out to an AWS S3 bucket to fetch content to display. This means that the content that this app showcases may be updated with little friction.
 
 The S3 bucket's file system is expected to adhere to a particular structure or schema (calling a file system's organization a schema is a bit silly, though 🙂):
 
